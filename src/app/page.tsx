@@ -1,6 +1,8 @@
 "use client";
+import Link from "next/link";
 import { useSearchParams, ReadonlyURLSearchParams } from "next/navigation";
-import { RefObject, useEffect, useRef, useState } from "react";
+
+import { useRef, useState, useEffect, RefObject } from "react";
 
 import { Position } from "@/lib/types";
 
@@ -52,14 +54,16 @@ export default function Home() {
         loop
         muted
       >
-        <source src={"background.mp4"} type="video/mp4" />
+        <source src={"/background.mp4"} type="video/mp4" />
       </video>
       <div className="z-50 flex flex-col text-5xl text-pink-700 font-bold">
         {question}
         <div className="text-3xl flex items-center justify-between p-12">
-          <button className="outline rounded-xl px-4 py-2 shadow-lg hover:animate-bounce">
-            Yes
-          </button>
+          <Link href={"/yay"}>
+            <button className="outline rounded-xl px-4 py-2 shadow-lg hover:animate-bounce">
+              Yes
+            </button>
+          </Link>
           <button
             onMouseEnter={changePos}
             onMouseDown={changePos}
